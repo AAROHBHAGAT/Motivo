@@ -22,7 +22,7 @@ public class App {
     static JLabel quoteLabel = new JLabel("Quote will appear here...");
 
     static JPanel taskListPanel = new JPanel();
-    static java.util.List<Task> tasks = new ArrayList<>();
+    static java.util.List<task> tasks = new ArrayList<>();
 
     static String[] quotes = {
             "The only way to do great work is to love what you do. - Steve Jobs",
@@ -81,7 +81,7 @@ public class App {
             Date selectedDate = (Date) dateSpinner.getValue();
             String dateStr = new SimpleDateFormat("MM/dd/yyyy").format(selectedDate);
             if (!taskName.isEmpty()) {
-                Task task = new Task(taskName, dateStr);
+                task task = new task(taskName, dateStr);
                 addTask(task);
                 saveTasks();
                 taskField.setText("");
@@ -96,7 +96,7 @@ public class App {
         expLabel.setText("EXP: " + exp + " | Level: " + level);
     }
 
-    static void addTask(Task task) {
+    static void addTask(task task) {
         tasks.add(task);
 
         JPanel row = new JPanel();
@@ -121,7 +121,7 @@ public class App {
         taskListPanel.revalidate();
     }
 
-    static void checkDate(Task task) {
+    static void checkDate(task task) {
         try {
             Date dueDate = new SimpleDateFormat("MM/dd/yyyy").parse(task.getDueDate());
             if (new Date().after(dueDate)) {
@@ -219,9 +219,9 @@ public class App {
         try {
             FileInputStream fis = new FileInputStream(file);
             ObjectInputStream ois = new ObjectInputStream(fis);
-            tasks = (ArrayList<Task>) ois.readObject();
+            tasks = (ArrayList<task>) ois.readObject();
             ois.close();
-            for (Task task : tasks) {
+            for (task task : tasks) {
                 addTask(task);
             }
         } catch (IOException | ClassNotFoundException e) {

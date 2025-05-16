@@ -1,11 +1,11 @@
 import java.io.Serializable;
 
-public class Task implements Serializable {
+public class task implements Serializable {
     private String description;
     private String dueDate;
     private boolean isComplete;
 
-    public Task(String description, String dueDate) {
+    public task(String description, String dueDate) {
         this.description = description;
         this.dueDate = dueDate;
         this.isComplete = false;
