@@ -1,5 +1,6 @@
 import java.io.Serializable;
 
+//This is used to find the date and define the tasks and their data
 public class task implements Serializable {
     private String description;
     private String dueDate;
